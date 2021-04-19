@@ -1,0 +1,6 @@
+telnet localhost 13854
+
+activate tensorflow
+jupyter notebook
+
+python plotGraph.py
