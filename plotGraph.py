@@ -5,14 +5,16 @@
 
 
 import matplotlib.pyplot as plt
-import matplotlib.animation as animation
+from matplotlib.animation import FuncAnimation
 from matplotlib import style
+import pandas as pd
 
 
 # In[ ]:
 
 
-style.use('fivethirtyeight')
+# plt.style.use('fivethirtyeight')
+plt.style.use('seaborn')
 
 fig = plt.figure()
 ax1 = fig.add_subplot(1,1,1)
@@ -21,24 +23,22 @@ ax1 = fig.add_subplot(1,1,1)
 # In[ ]:
 
 
-def animate(i):
-    graph_data = open('ex.txt','r').read()
-    lines = graph_data.split('\n')
-    xs = []
-    ys = []
-    for line in lines:
-        if len(line) > 1:
-            x, y = line.split(',')
-            xs.append(float(x))
-            ys.append(float(y))
-    ax1.clear()
-    ax1.plot(xs, ys)
+def animation(i):
+    EEGDATAFRAME = pd.read_csv('eegdata.csv')
+    x = []
+    y = []
+    
+    x = EEGDATAFRAME[0:i]['Time']
+    y = EEGDATAFRAME[0:i]['Attention']
+    
+    ax.clear()
+    ax.plot(x, y)
 
 
 # In[ ]:
 
 
-ani = animation.FuncAnimation(fig, animate, interval=1000)
+animation = FuncAnimation(fig, func=animation, interval=1000)
 plt.show()
 
 
