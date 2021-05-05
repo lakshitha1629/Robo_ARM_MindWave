@@ -29,24 +29,32 @@ void loop() {
          
         if (serialData == 'a') 
         {         
-          myservo_thumb.write(90);
           myservo_index.write(90);
-          myservo_middle.write(90);
-          myservo_ring.write(90);
-          myservo_pinkie.write(90);
           flag=true;
         }
         if (serialData == 'b') 
         {         
-          myservo_thumb.write(90);
-          myservo_index.write(90);
           myservo_middle.write(90);
+          flag=true;
+        }
+        if (serialData == 'c') 
+        {         
           myservo_ring.write(90);
+          flag=true;
+        }
+        if (serialData == 'd') 
+        {         
           myservo_pinkie.write(90);
           flag=true;
         }
+        if (serialData == 'e') 
+        {         
+          myservo_thumb.write(90);
+          flag=true;
+        }
+        
         //Servos make a Closing all
-        if (serialData == 'c') 
+        if (serialData == 'f') 
         {         
           myservo_thumb.write(0);
           myservo_index.write(0);

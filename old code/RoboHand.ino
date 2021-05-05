@@ -27,35 +27,38 @@ void loop() {
   if(Serial.available()) {
          serialData = Serial.read();
          
+//Servos pointing two fingers
         if (serialData == 'a') 
-        {         
-          myservo_thumb.write(90);
-          myservo_index.write(90);
-          myservo_middle.write(90);
-          myservo_ring.write(90);
-          myservo_pinkie.write(90);
-          flag=true;
-        }
-        if (serialData == 'b') 
-        {         
-          myservo_thumb.write(90);
-          myservo_index.write(90);
-          myservo_middle.write(90);
-          myservo_ring.write(90);
-          myservo_pinkie.write(90);
-          flag=true;
-        }
-        //Servos make a Closing all
-        if (serialData == 'c') 
         {         
           myservo_thumb.write(0);
           myservo_index.write(0);
-          myservo_middle.write(0);
-          myservo_ring.write(0);
-          myservo_pinkie.write(0);
+          myservo_middle.write(180);
+          myservo_ring.write(180);
+          myservo_pinkie.write(180);
           flag=true;
         }
         
+//Servos pointing peace sign
+        if (serialData == 'b') 
+        {         
+          myservo_thumb.write(180);
+          myservo_index.write(0);
+          myservo_middle.write(0);
+          myservo_ring.write(180);
+          myservo_pinkie.write(180);
+          flag=true;
+        }
+        
+//Servos make a fist
+        if (serialData == 'c') 
+        {         
+          myservo_thumb.write(180);
+          myservo_index.write(180);
+          myservo_middle.write(180);
+          myservo_ring.write(180);
+          myservo_pinkie.write(180);
+          flag=true;
+        }
      if(flag)
         {
           delay(1000);
